@@ -1,4 +1,4 @@
-view: sql_runner_query {
+view: sql_runner_query2 {
   derived_table: {
     sql: SELECT
           "users"."gender" AS "users.gender",
@@ -11,6 +11,7 @@ view: sql_runner_query {
           1
       ORDER BY
           2 DESC
+      LIMIT 500
        ;;
   }
 
