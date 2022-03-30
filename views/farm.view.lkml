@@ -15,11 +15,15 @@ view: farm{
     type: string
     sql: ${TABLE}.city ;;
   }
+  measure: percent {
+      type: number
+      sql: ${orders_count}/${average_count} ;;
+  }
   dimension: interval {
     type: tier
     tiers: [0,10,20,30,40,50,60,70,80,90,100]
     style: integer
-    sql:${TABLE}.age ;;
+    sql:$(percent);;
   }
   dimension: orders_count {
     type: number
