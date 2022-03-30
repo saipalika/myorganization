@@ -1,21 +1,19 @@
 view: farm {
   derived_table: {
     sql: SELECT
-          "users"."id" AS "users.id","users"."gender" AS "users.gender","users"."age" AS "users.age","users"."city" AS "users.city",
-          count(distinct user.id) OVER(PARTITION BY users.city) AS "users.count"
-      FROM
-          "public"."users" AS "users"
-
-      GROUP BY
-          1
-      ORDER BY
-          2 DESC
+      users.city  AS "city",users.id AS "id",users.city AS "city",users.age AS "age",
+      COUNT(DISTINCT orders.id ) OVER(PARTITION BY users.city) AS "count"
+    FROM public.order_items  AS order_items
+    LEFT JOIN public.orders  AS orders ON order_items.order_id = orders.id
+    LEFT JOIN public.users  AS users ON orders.user_id = users.id
+    GROUP BY 1,2,3,4
+    ORDER BY 2 DESC
        ;;
 
   }
   dimension: id {
     type: number
-    sql: ${TABLE}."users.id" ;;
+    sql: $(${TABLE}.id ;;
   }
   measure: count {
     type: count
@@ -24,7 +22,7 @@ view: farm {
 
   dimension: users_gender {
     type: string
-    sql: ${TABLE}."users.gender" ;;
+    sql: $(${TABLE}.gender ;;
   }
 
   dimension: users_count {
@@ -33,11 +31,11 @@ view: farm {
   }
   dimension: age {
     type: number
-    sql: ${TABLE}."users.age" ;;
+    sql: $(${TABLE}.age ;;
   }
   dimension: city {
     type: number
-    sql: ${TABLE}."users.city" ;;
+    sql: $(${TABLE}.city;;
   }
 
   set: detail {
