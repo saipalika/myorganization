@@ -1,8 +1,8 @@
 view: farm {
   derived_table: {
     sql: SELECT
-          "users"."gender" AS "users.gender",
-          COUNT(DISTINCT users.id ) AS "users.count"
+          "users"."id" AS "users.id","users"."gender" AS "users.gender","users"."age" AS "users.age","users"."city" AS "users.city",
+          COUNT(DISTINCT users.id ) OVER(PARTITION BY users.city )AS "users.count"
       FROM
           "public"."orders" AS "orders"
           LEFT JOIN "public"."users" AS "users" ON "orders"."user_id" = "users"."id"
@@ -14,7 +14,10 @@ view: farm {
        ;;
 
   }
-
+  dimension: id {
+    type: number
+    sql: ${TABLE}."users.id" ;;
+  }
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -28,6 +31,14 @@ view: farm {
   dimension: users_count {
     type: number
     sql: ${TABLE}."users.count" ;;
+  }
+  dimension: age {
+    type: number
+    sql: ${TABLE}."users.age" ;;
+  }
+  dimension: city {
+    type: number
+    sql: ${TABLE}."users.city" ;;
   }
 
   set: detail {
