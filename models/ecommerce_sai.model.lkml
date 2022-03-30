@@ -8,7 +8,7 @@ include: "/views/**/*.view"
 # use the Quick Help panel on the right to see documentation.
 
 datagroup: ecommerce_sai_default_datagroup {
-   sql_trigger: SELECT MAX(id) FROM order_items;;
+   # sql_trigger: SELECT MAX(id) FROM order_items;;
   max_cache_age: "1 hour"
 }
 
