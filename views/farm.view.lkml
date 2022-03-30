@@ -2,11 +2,10 @@ view: farm {
   derived_table: {
     sql: SELECT
           "users"."id" AS "users.id","users"."gender" AS "users.gender","users"."age" AS "users.age","users"."city" AS "users.city",
-          COUNT(DISTINCT users.id ) OVER(PARTITION BY users.city )AS "users.count"
+          count(distinct user.id) OVER(PARTITION BY users.city) AS "users.count"
       FROM
-          "public"."orders" AS "orders"
-          LEFT JOIN "public"."users" AS "users" ON "orders"."user_id" = "users"."id"
-      WHERE ((( "orders"."created_at" ) >= (TIMESTAMP '2016-02-03') AND ( "orders"."created_at" ) < (TIMESTAMP '2016-04-06')))
+          "public"."users" AS "users"
+
       GROUP BY
           1
       ORDER BY
