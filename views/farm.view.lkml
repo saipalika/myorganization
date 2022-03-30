@@ -2,7 +2,7 @@ view: farm {
   derived_table: {
     sql: SELECT
       users.city  AS "city",users.id AS "id",users.city AS "city",users.age AS "age",
-      COUNT(DISTINCT orders.id ) OVER(PARTITION BY users.city) AS "count"
+      COUNT(DISTINCT orders.id ) AS "count"
     FROM public.order_items  AS order_items
     LEFT JOIN public.orders  AS orders ON order_items.order_id = orders.id
     LEFT JOIN public.users  AS users ON orders.user_id = users.id
