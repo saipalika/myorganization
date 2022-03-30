@@ -77,3 +77,4 @@ explore: product_facts {
 explore: products {}
 
 explore: users {}
+explore: farm {}
