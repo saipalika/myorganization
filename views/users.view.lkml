@@ -47,7 +47,9 @@ view: users {
     type: string
     sql: ${TABLE}.city ;;
     html:
-    <ul><li> link: www.youtube.com/watch?v=_3HMEs94kd0 </li>
+    <ul>
+    <li> value: {{ value }} </li>
+    <li> link: www.youtube.com/watch?v=_3HMEs94kd0 </li>
     </ul> ;;
   }
 
