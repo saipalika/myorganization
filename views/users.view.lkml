@@ -46,11 +46,8 @@ view: users {
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
-    link: {
-      label: "TEST"
-      url: "www.youtube.com/watch?v=_3HMEs94kd0"
-      icon_url: "https://img.youtube.com/vi/_3HMEs94kd0/0.jpg"
-    }
+    html:
+    <a href=”https://lookerinstance/dashboard/157?Today_date={{value | url_encode}}”>{{linked_value}}</a>;;
 
   }
 
