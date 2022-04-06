@@ -46,9 +46,10 @@ view: users {
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
-    html:
-    <a href=”https://lookerinstance/dashboard/157?Today_date={{value | url_encode}}”>{{linked_value}}</a>;;
-
+    link: {
+      label: "Contact Warehouse Support"
+      url: "mailto:saikumar1111996@gmail.com"
+    }
   }
 
   dimension: country {
