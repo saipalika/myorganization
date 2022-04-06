@@ -48,7 +48,7 @@ view: users {
     sql: ${TABLE}.city ;;
     link: {
       label: "Contact Warehouse Support"
-      url: "mailto:saikumar1111996@gmail.com"
+      url: "youtube.com"
     }
   }
 
