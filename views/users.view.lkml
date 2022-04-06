@@ -48,7 +48,7 @@ view: users {
     sql: ${TABLE}.city ;;
     link: {
       label: "Contact Warehouse Support"
-      url: "https://www.youtube.com/watch?v=4Ow4N5SNa8U"
+      url: "https://www.youtube.com/watch?v=_3HMEs94kd0"
     }
   }
 
