@@ -46,6 +46,10 @@ view: users {
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
+    link: {
+      label: "TEST"
+      url: "www.youtube.com/watch?v=_3HMEs94kd0"
+    }
   }
 
   dimension: country {
@@ -117,8 +121,4 @@ view: users {
     sql: ${TABLE}.zip ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [id, first_name, last_name, orders.count]
-  }
 }
