@@ -46,10 +46,9 @@ view: users {
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
-    link: {
-      label: "TEST"
-      url: "www.youtube.com/watch?v=_3HMEs94kd0"
-    }
+    html:
+    <ul><li> link: www.youtube.com/watch?v=_3HMEs94kd0 </li>
+    </ul> ;;
   }
 
   dimension: country {
