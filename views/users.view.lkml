@@ -46,11 +46,12 @@ view: users {
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
-    html:
-    <ul>
-    <li> value: {{ value }} </li>
-    <li> link: www.youtube.com/watch?v=_3HMEs94kd0 </li>
-    </ul> ;;
+    link: {
+      label: "TEST"
+      url: "www.youtube.com/watch?v=_3HMEs94kd0"
+      icon_url: "https://img.youtube.com/vi/_3HMEs94kd0/0.jpg"
+    }
+
   }
 
   dimension: country {
