@@ -11,7 +11,10 @@ datagroup: ecommerce_sai_default_datagroup {
    # sql_trigger: SELECT MAX(id) FROM order_items;;
   max_cache_age: "1 hour"
 }
-
+datagroup: ecommerce_sai_default_datagroup2 {
+  # sql_trigger: SELECT MAX(id) FROM order_items;;
+  max_cache_age: "1 hour"
+}
 
 # Explores allow you to join together different views (database tables) based on the
 # relationships between fields. By joining a view into an Explore, you make those
@@ -21,6 +24,7 @@ datagroup: ecommerce_sai_default_datagroup {
 # To see the Explore you’re building, navigate to the Explore menu and select an Explore under "Ecommerce Sai"
 
 explore: inventory_items {
+  persist_with: ecommerce_sai_default_datagroup2
   join: products {
     type: left_outer
     sql_on: ${inventory_items.product_id} = ${products.id} ;;
