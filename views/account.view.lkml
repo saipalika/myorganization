@@ -53,6 +53,7 @@ view: account {
     sql: ${TABLE}.created ;;
   }
 
+
   dimension: name {
     type: string
     sql: ${TABLE}.name ;;

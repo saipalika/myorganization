@@ -13,6 +13,11 @@ view: order_items {
     sql: ${TABLE}.id ;;
   }
 
+  parameter: salespicker {
+    description: "Use with the Sale Price Metric measure"
+    type: unquoted
+  }
+
   # Here's what a typical dimension looks like in LookML.
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Inventory Item ID" in Explore.
@@ -62,7 +67,7 @@ view: order_items {
 
   measure: average_sale_price {
     type: average
-    sql: ${sale_price} ;;
+    sql: {% parameter salespicker %}(${sale_price}) ;;
   }
 
   measure: count {
