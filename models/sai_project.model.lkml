@@ -140,7 +140,12 @@ explore: order_items {
 
   join: users {
     type: left_outer
-    sql_on: ${orders.user_id} = ${users.id} ;;
+    sql_on: {% if order_items._in_query %} --- sai view_name._in_query test
+
+    ${order_items.id} = ${users.id}
+              {% else %}  ${orders.user_id} = ${users.id}
+
+    {% endif %};;
     relationship: many_to_one
   }
 
