@@ -9,6 +9,6 @@ remote_dependency: users {
 
 remote_dependency: orders {
   url: "https://github.com/saipalika/myorganization"
-  ref: "master"
+  ref: "dev-sai-kumar-palika-zqps"
 
 }
